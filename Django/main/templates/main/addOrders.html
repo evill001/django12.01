@@ -1,0 +1,27 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Главная
+{% endblock %}
+
+
+{% block content %}
+
+
+<form method="post">
+{% csrf_token %}
+{{ form.order_number }} <br><br>
+{{ form.order_date }} <br><br>
+{{ form.prod }} <br><br>
+{{ form.cust }} <br><br>
+{{ form.quantity }} <br><br>
+{{ form.price }} <br><br>
+<a href="">
+    <button type="submit" class="add">Добавить</button>
+</a>
+
+<span class="error">{{ error }}</span>
+</form>
+
+
+{% endblock %}

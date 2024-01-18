@@ -1,0 +1,22 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Главная
+{% endblock %}
+
+
+{% block content %}
+
+<div class="product">
+    <div class="product__items">
+        <h1>Действительно хотите удалить?</h1>
+        <div class="product__btns">
+            <form method="post">
+                {% csrf_token %}
+                <a href=""><button type="submit">Удалить</button></a>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

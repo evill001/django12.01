@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'styles/style.css' %}">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <a href="{% url 'home' %}">
+                <img src="https://oblako.popisat.ru/bankovaya/resize_cache/iblock/37f/37fcb586adc81f1b916e1e471d5a4628-png-crop-1536x832.webp" alt="">
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'home' %}">Товары</a></li>
+                    <li><a href="{% url 'customers' %}">Клиенты</a></li>
+                    <li><a href="{% url 'orders' %}">Заказы</a></li>
+                </ul>
+            </nav>
+        </div>
+       
+    </header>
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+    
+</body>
+</html>

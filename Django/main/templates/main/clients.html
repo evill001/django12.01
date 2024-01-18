@@ -1,0 +1,23 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Главная
+{% endblock %}
+
+
+{% block content %}
+
+
+{% if clients %}
+    {% for cl in clients%}
+        <div class="customers">
+            <h2>{{cl.name}} {{cl.surname}}</h2>
+            <p>Контактные данные:</p>
+            <span>{{cl.phone}}</span>
+            <span>{{cl.email}}</span>
+        </div>
+    {% endfor %}
+{% else %}
+    <h1>Клиенты не найдены</h1>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,42 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Главная
+{% endblock %}
+
+
+{% block content %}
+
+<a href="{% url 'AddOrder' %}">
+    <button class="add">Добавить заказ<span>+</span></button>
+</a>
+
+<table>
+    <tr>
+        <th>Номер</th>
+        <th>Дата заказа</th>
+        <th>Продукт</th>
+        <th>Клиент</th>
+        <th>Кол-во</th>
+        <th>Цена</th>
+    </tr>
+    
+    {% if orders %}
+        {% for ord in orders%}
+        <tr>
+            <td>{{ ord.order_number }}</td>
+            <td>{{ ord.order_date }}</td>
+            <td>{{ ord.prod }}</td>
+            <td>{{ ord.cust }}</td>
+            <td>{{ ord.quantity }}</td>
+            <td>{{ ord.price }}</td>
+        </tr>
+        {% endfor %}
+    {% else %}
+    <h1>Заказы не найдены</h1>
+    {% endif %}
+
+</table>
+
+
+{% endblock %}

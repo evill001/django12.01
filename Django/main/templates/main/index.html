@@ -1,0 +1,32 @@
+{% extends 'main/base.html' %}
+
+{% block title %}
+Главная
+{% endblock %}
+
+
+{% block content %}
+
+<a href="{% url 'AddProduct' %}">
+    <button class="add">Добавить товар <span>+</span></button>
+</a>
+{% if prod %}
+    {% for el in prod %}
+    <div class="product">
+        <div class="product__items">
+            <h1>{{el.title}}</h1>
+            <div class="product__btns">
+                <a href="{% url 'updateProd' el.id %}"><button href="">Изменить</button></a>
+                <a href="{% url 'deleteProd' el.id %}"><button >Удалить</button></a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% else %}
+    <div class="product">
+        <div class="product__items">
+            <h1>Товары не найдены</h1>
+        </div>
+    </div>
+{% endif %}
+{% endblock %}
